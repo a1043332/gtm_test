@@ -38,6 +38,7 @@
                 user = Cookies.get('user');
             }
             document.querySelector('h1').innerHTML = 'Hello ' + user + ' ！';
+            console.log(user)
         }
         function login() {
             var x = $('.user').val();
