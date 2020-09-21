@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -12,17 +11,39 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JF8LZJ');</script>
     <!-- End Google Tag Manager -->
+    <script src=”https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js”></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GTM TEST</title>
 </head>
-
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JF8LZJ" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <h1>Hello World！</h1>
-</body>
 
+
+    <h1></h1>
+    <form action="">
+        User Name：<input type="text">
+        <input type="button" class="user" onclick="login()">
+    </form>
+
+
+    <script>
+        var user = 'Hello World';
+        function newUser() {
+            if (Cookies.get('user')) {
+                user = Cookies.get('user');
+            }
+            document.querySelector('h1').innerHTML = 'Hello ' + user + ' ！';
+        }
+        function login() {
+            var x = $('.user').val();
+            Cookies.set('user', x, { SameSite: 'Lax' });
+            newUser();
+        }
+        newUser();
+    </script>
+</body>
 </html>
